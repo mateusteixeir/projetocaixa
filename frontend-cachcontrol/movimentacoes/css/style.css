@@ -38,7 +38,7 @@ input[type=text], select {
     border-radius: 4px;
     cursor: pointer;
   }
-  input[type=button]:hover {
+  #btn:hover {
     background-color: #45a049;
   }
   
