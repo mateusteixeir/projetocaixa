@@ -4,13 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro-Movimentações</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div class="Container">
-        <div>
+        <div id="cabecalho">
             <h1>Cadastro de Movimentacoes</h1>
-            <a href="../index.html"><button>Voltar para ao inicio</button></a>
+            <a href="../index.html"><button>Voltar</button></a>
         </div>
-    </div>
+        <div>
+            <form>
+                <label for="fname">Data</label>
+                <input type="date"  id="data">
+                <label for="fname">Tipo de Movimentação</label>
+                <select name="selectTipo">
+                    <option value="entrada" selected>Entrada</option>
+                    <option value="Saida" >Saída</option>
+                  </select>
+                  <label for="fname">Caixa</label>
+                <select name="selectCaixa">
+                    <option value="1" selected>CAIXA-1</option>
+                    <option value="2" >CAIXA-2</option>
+                </select>
+                <label for="fname">Descrição</label>
+                <input type="text"  id="descricao">
+                <label for="fname">Valor</label>
+                <input type="number"  id="valor">
+                <button type="button" id="btn">Cadastrar</button>
+            </form>
+        </div>
 </body>
+<script src="js/movimentacao.js"></script>
 </html>
