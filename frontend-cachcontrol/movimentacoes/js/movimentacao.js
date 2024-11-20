@@ -49,3 +49,48 @@ document.getElementById("btn").addEventListener("click", function () {
         enviarDados();
     }
 });
+
+
+async function carregarCampos() {
+    let url = "http://localhost:8080/caixas";
+
+    try {
+        const response = await fetch(url, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json", 
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error(`Erro ao receber os dados: ${response.statusText}`);
+        }
+        const data = await response.json();
+
+        const selectNumCaixa = document.getElementById("numCaixa");
+        selectNumCaixa.innerHTML = "";
+
+        const optionDefault = document.createElement("option");
+        optionDefault.textContent = "Selecione um caixa";
+        optionDefault.value = "";
+        selectNumCaixa.appendChild(optionDefault);
+
+        data.forEach(item => {
+            const option = document.createElement("option");
+            option.value = item.id; 
+            option.textContent = item.descricao; 
+
+            console.log(item);
+            selectNumCaixa.appendChild(option); 
+        });
+
+    } catch (error) {
+        alert(`Ocorreu um erro: ${error.message}`);
+        console.error("Erro ao enviar os dados:", error);
+    }
+}
+
+window.addEventListener("load", carregarCampos);
+    
+
+    
